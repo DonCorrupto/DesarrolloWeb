@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand @click="passPaginaPrincipal()">ViajaCon</b-navbar-brand>
+      <b-navbar-brand>ViajaCon</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -16,15 +16,15 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item @click="passAdmin()">Subir Destinos</b-nav-item>
-          <b-nav-item @click="passAdmin()">Subir Hoteles</b-nav-item>
-          <b-nav-item @click="passAdmin()">Subir Acividades</b-nav-item>
+          <b-nav-item @click="subirDestinos()">Subir Destinos</b-nav-item>
+          <b-nav-item @click="subirHoteles()">Subir Hoteles</b-nav-item>
+          <b-nav-item @click="subirActividades()">Subir Acividades</b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item @click="cerrarSesion()">Cerrar Sesión</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -88,10 +88,6 @@ export default {
       window.open("actividades", "_self");
     },
 
-    async passPaginaPrincipal() {
-      window.open("paginaprincipal", "_self");
-    },
-
     async passMisReserva() {
       window.open("reserva", "_self");
     },
@@ -99,6 +95,25 @@ export default {
     async passAdmin() {
       window.open("pagAdmin", "_self");
     },
+
+    async subirDestinos(){
+      window.open("subirInfo/destinos", "_self");
+    },
+
+    async subirHoteles(){
+      window.open("subirInfo/hoteles","_self");
+    },
+
+    async subirActividades() {
+      window.open("subirInfo/actividades", "_self");
+    },
+
+    async cerrarSesion() {
+      swal("Good job!", "You clicked the button!", "success");
+        setTimeout(() => {
+          window.open("", "_self");
+        }, 2000);
+    }
   },
 };
 </script>

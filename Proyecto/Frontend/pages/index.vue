@@ -1,93 +1,254 @@
 <template>
-  <div class="margen">
-    <b-carousel
-      id="carousel-fade"
-      style="text-shadow: 0px 0px 2px #000"
-      fade
-      indicators
-      img-width="1024"
-      img-height="480"
-    >
-      <b-carousel-slide
-        caption="First Slide"
-        img-src="https://picsum.photos/2200/480/?image=10"
-      ></b-carousel-slide>
-      <b-carousel-slide
-        caption="Second Slide"
-        img-src="https://picsum.photos/2200/480/?image=12"
-      ></b-carousel-slide>
-      <b-carousel-slide
-        caption="Third Slide"
-        img-src="https://picsum.photos/2200/480/?image=22"
-      ></b-carousel-slide>
-    </b-carousel>
-    <br>
-    <b-card-group columns>
-      <b-card
-        title="Card title that wraps to a new line"
-        img-src="https://placekitten.com/g/400/450"
-        img-alt="Image"
-        img-top
-      >
-        <b-card-text>
-          This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.
-        </b-card-text>
-      </b-card>
+    <div>
+        <b-carousel
+			id="carousel-fade"
+			style="text-shadow: 0px 0px 2px #000"
+			fade
+			indicators
+			img-width="1024"
+			img-height="480"
+		>
+			<b-carousel-slide
+			caption="Destinos"
+			img-src="https://picsum.photos/3000/1000/?image=100"
+			></b-carousel-slide>
+			<b-carousel-slide
+			caption="Hoteles"
+			img-src="https://picsum.photos/3000/1000/?image=164"
+			></b-carousel-slide>
+			<b-carousel-slide
+			caption="Actividades"
+			img-src="https://picsum.photos/3000/1000/?image=174"
+			></b-carousel-slide>
+		</b-carousel>
+		<br>
+		<center>
+		<h1>Nuevos Destinos, Hoteles y Actividades</h1>
+		</center>
+		<br>
+		<div style="display:flex">
+			<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://media.istockphoto.com/photos/beautiful-sunset-over-cartagena-colombia-picture-id1148861090?k=20&m=1148861090&s=612x612&w=0&h=tnBj9jgcNH0WZIVr3xAVFv-tbYQIEKLnhcgJatoe4Y4="
+			>
+			<v-card-title style="color:white">
+				Destinos
+			</v-card-title>
+			</v-img>
 
-      <b-card header="Quote">
-        <blockquote class="blockquote mb-0">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-      </b-card>
+			<v-card-subtitle class="pb-0">
+			<h6>Colombia</h6>
+			</v-card-subtitle>
 
-      <b-card title="Title" img-src="https://placekitten.com/500/350" img-alt="Image" img-top>
-        <b-card-text>
-          This card has supporting text below as a natural lead-in to additional content.
-        </b-card-text>
-        <b-card-text class="small text-muted">Last updated 3 mins ago</b-card-text>
-      </b-card>
+			<v-card-text style="color:black">
+			<div>Whitsunday Island, Whitsunday Islands</div>
+			<br>
+			</v-card-text>
 
-      <b-card bg-variant="primary" text-variant="white">
-        <blockquote class="card-blockquote">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer>
-            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-          </footer>
-        </blockquote>
-      </b-card>
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+				
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
 
-      <b-card>
-        <b-card-title>Title</b-card-title>
-        <b-card-text>
-          This card has supporting text below as a natural lead-in to additional content.
-        </b-card-text>
-        <b-card-text class="small text-muted">Last updated 3 mins ago</b-card-text>
-      </b-card>
+		<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://www.lugaresdenieve.com/sites/default/files/imagenes-reportajes/whistler-village.jpg"
+			>
+			<v-card-title style="color:white">
+				Hoteles
+			</v-card-title>
+			</v-img>
 
-      <b-card img-src="https://picsum.photos/400/400/?image=41" img-alt="Image" overlay></b-card>
+			<v-card-subtitle class="pb-0">
+			<h6>Canada</h6>
+			</v-card-subtitle>
 
-      <b-card img-src="https://picsum.photos/400/200/?image=41" img-alt="Image" img-top>
-        <b-card-text>
-          This is a wider card with supporting text below as a natural lead-in to additional content.
-          This card has even longer content than the first.
-        </b-card-text>
-        <template #footer>
-          <small class="text-muted">Footer Text</small>
-        </template>
-      </b-card>
-    </b-card-group>
-    <br>
-    <Nuxt />
-  </div>
+			<v-card-text style="color:black">
+			<div>Moose Hotel and Suites</div>
+
+			<br>
+			</v-card-text>
+
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+				
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
+
+		<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://www.lugaresdenieve.com/sites/default/files/whistler-heliskiing_0.jpg"
+			>
+			<v-card-title style="color:white">
+				Actividades
+			</v-card-title>
+			</v-img>
+
+			<v-card-subtitle class="pb-0">
+			<h6>Suiza</h6>
+			</v-card-subtitle>
+
+			<v-card-text style="color:black">
+			<div>Snowboarding</div>
+
+			<br>
+			</v-card-text>
+
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+				
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
+		</div>
+
+		<br>
+		<div style="display:flex">
+			<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://www.egiptoexclusivo.com/wp-content/uploads/2022/08/historia-del-antiguo-egipto.jpg"
+			>
+			<v-card-title style="color:white">
+				Destinos
+			</v-card-title>
+			</v-img>
+
+			<v-card-subtitle class="pb-0">
+			<h6>Egipto</h6>
+			</v-card-subtitle>
+
+			<v-card-text style="color:black">
+			<div>Whitsunday Island, Whitsunday Islands</div>
+			<br>
+			</v-card-text>
+
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
+
+		<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://www.exoticca.com/es/blog/wp-content/uploads/2018/07/02.06.-EXOTICCA.jpg"
+			>
+			<v-card-title style="color:white">
+				Hoteles
+			</v-card-title>
+			</v-img>
+
+			<v-card-subtitle class="pb-0">
+			<h6>Indonesia</h6>
+			</v-card-subtitle>
+
+			<v-card-text style="color:black">
+			<div>Moose Hotel and Suites</div>
+
+			<br>
+			</v-card-text>
+
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
+
+		<v-card
+			class="mx-auto"
+			max-width="400"
+		>
+			<v-img
+			height="400px"
+			src="https://sobreaustralia.com/wp-content/uploads/2012/01/surf-australia1.jpg"
+			>
+			<v-card-title style="color:white">
+				Actividades
+			</v-card-title>
+			</v-img>
+
+			<v-card-subtitle class="pb-0">
+			<h6>Australia</h6>
+			</v-card-subtitle>
+
+			<v-card-text style="color:black">
+			<div>Surfing</div>
+
+			<br>
+			</v-card-text>
+
+			<v-card-actions>
+			<v-btn
+				style="color:orange"
+				text
+			>
+				<!--Explore-->
+			</v-btn>
+			</v-card-actions>
+		</v-card>
+		</div>
+		
+		<br>
+        <Nuxt />
+    </div>
 </template>
 
 <script>
+import swal from 'sweetalert';
+
 export default {
-  layout: "header_index",
+    layout: "header_index",
+
+   data () {
+    },
+
+	beforeMount(){
+	},
+
+	methods:{
+	}
 }
 </script>
 
@@ -95,4 +256,5 @@ export default {
 .margen{
   margin: 1%;
 }
+
 </style>

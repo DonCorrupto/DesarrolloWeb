@@ -6,14 +6,11 @@
             <b-navbar-brand>ViajaCon</b-navbar-brand>
 
             <b-collapse id="nav-text-collapse" is-nav>
-            <b-navbar-nav>
-                <b-nav-text>Navbar text</b-nav-text>
-            </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-nav-form>
                 <div>
-                    <b-button pill variant="outline-secondary">Sign in</b-button>
-                    <b-button pill>Sign up</b-button>
+                    <b-button @click="signIn()" pill variant="outline-secondary">Iniciar Sesión</b-button>
+                    <b-button @click="signUp()" pill>Crear Cuenta</b-button>
                 </div>
                 </b-nav-form>
             </b-navbar-nav>
@@ -66,6 +63,18 @@
         'mdi-instagram',
       ],
     }),
+
+    beforeMount() {},
+
+    methods:{
+        async signIn(){
+            window.open("login/iniciarSesion", "_self");
+        },
+
+        async signUp(){
+            window.open("login/crearCuenta", "_self");
+        }
+    }
   }
 </script>
 
