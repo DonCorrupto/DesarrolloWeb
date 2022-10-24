@@ -1,52 +1,109 @@
 <template>
   <div class="form">
-    <h1>Hola</h1>
+    <b-img
+      src="https://picsum.photos/950/937/?image=1035"
+      fluid
+      alt="Responsive image"
+    >
+    </b-img>
+    <div class="login">
+      <h1 style="font-family: sans-serif">Iniciar Sesión</h1>
+      <h6>Bienvenido a ViajaCon</h6>
+      <br>
+      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form-group
+          id="input-group-1"
+          label-for="input-1"
+        >
+          <b-form-input
+            id="input-1"
+            v-model="form.email"
+            type="email"
+            placeholder="Correo Electronico"
+            required
+            style="border-radius: 15px"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="input-group-2" label-for="input-2">
+          <b-form-input
+            id="input-2"
+            v-model="form.password"
+            type = "password"
+            placeholder="Contraseña"
+            required
+            style="border-radius: 15px"
+          ></b-form-input>
+        </b-form-group>
+        <br>
+        <b-button style="border-radius: 15px; width:500px " type="submit" variant="primary">Iniciar Sesión</b-button>
+        <br>
+        <br>
+        <p> Aun no tienes una Cuenta? <b-link @click="signUp()">Crear Cuenta</b-link></p>
+      </b-form>
+    </div>
   </div>
 </template>
 
 <script>
 import swal from "sweetalert";
-  export default {
-    data() {
-      return {
-        form: {
-          email: '',
-          password: '',
-        },
-        show: true
-      }
-    },
-    methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        console.log(JSON.stringify(this.form))
-        swal("Good job!", "You clicked the button!", "success");
-        setTimeout(() => {
-          window.open("destinos", "_self");
-        }, 2000);
+export default {
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
       },
-      onReset(event) {
-        event.preventDefault()
-        // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        // Trick to reset/clear native browser form validation state
-        this.show = false
-        this.$nextTick(() => {
-          this.show = true
-        })
-      },
+      show: true,
+    };
+  },
 
-      async signUp (){
-        window.open("crearCuenta", "_self")
-      }
-    }
-  }
+  beforeMount() {},
+
+  methods: {
+    onSubmit(event) {
+      event.preventDefault();
+      console.log(JSON.stringify(this.form));
+      swal("Good job!", "You clicked the button!", "success");
+      setTimeout(() => {
+        window.open("../destinos", "_self");
+      }, 2000);
+    },
+    onReset(event) {
+      event.preventDefault();
+      // Reset our form values
+      this.form.email = "";
+      this.form.name = "";
+      // Trick to reset/clear native browser form validation state
+      this.show = false;
+      this.$nextTick(() => {
+        this.show = true;
+      });
+    },
+
+    async signUp() {
+      window.open("crearCuenta", "_self");
+    },
+  },
+};
 </script>
 
 <style>
-.form{
-    border: 2px solid red;
+.form {
+  background-color: whitesmoke;
+  
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+  position: relative;
+}
 
+.login{
+  
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15%;
+  
 }
 </style>

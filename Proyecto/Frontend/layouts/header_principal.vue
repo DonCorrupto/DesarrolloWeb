@@ -111,7 +111,7 @@ export default {
     async cerrarSesion() {
       swal("Good job!", "You clicked the button!", "success");
         setTimeout(() => {
-          window.open("", "_self");
+          window.open("../", "_self");
         }, 2000);
     }
   },
