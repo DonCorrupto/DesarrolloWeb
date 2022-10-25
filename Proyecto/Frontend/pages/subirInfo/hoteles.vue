@@ -35,13 +35,19 @@
           <b-form-group id="input-group-3" label-for="input-3">
             <b-form-input
               id="input-3"
+<<<<<<< HEAD
               v-model="form.hotel"
               placeholder="Nombre del Hotel"
+=======
+              v-model="form.imageCiudad"
+              placeholder="Url de la imagen que represente el Hotel"
+>>>>>>> 0331a22c43999e97a2c038420acab8a6d8711833
               required
               style="border-radius: 15px"
             ></b-form-input>
           </b-form-group>
           <b-form-group id="input-group-4" label-for="input-4">
+<<<<<<< HEAD
             <b-form-input
               id="input-4"
               v-model="form.imageHotel"
@@ -54,6 +60,11 @@
             <b-form-textarea
               id="input-5"
               v-model="form.descripcionHotel"
+=======
+            <b-form-textarea
+              id="input-4"
+              v-model="form.descripcionCiudad"
+>>>>>>> 0331a22c43999e97a2c038420acab8a6d8711833
               placeholder="Descripcion del Hotel"
               required
               style="border-radius: 15px"
@@ -73,11 +84,16 @@
     data() {
       return {
         form: {
+<<<<<<< HEAD
           pais: "",
           ciudad: "",
           hotel: "",
           imageHotel: "",
           descripcionHotel: "",
+=======
+          email: "",
+          password: "",
+>>>>>>> 0331a22c43999e97a2c038420acab8a6d8711833
         },
         show: true,
       };
@@ -97,11 +113,16 @@
       onReset(event) {
         event.preventDefault();
         // Reset our form values
+<<<<<<< HEAD
         this.form.pais = "";
         this.form.ciudad = "";
         this.form.hotel = "";
         this.form.imageHotel = "";
         this.form.descripcionHotel = "";
+=======
+        this.form.email = "";
+        this.form.name = "";
+>>>>>>> 0331a22c43999e97a2c038420acab8a6d8711833
         // Trick to reset/clear native browser form validation state
         this.show = false;
         this.$nextTick(() => {
