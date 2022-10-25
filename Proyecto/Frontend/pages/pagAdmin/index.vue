@@ -26,18 +26,48 @@
               <b-col>
                 <b-card-group deck>
                   <b-card
-                    header="#Pais"
-                    header-text-variant="white"
-                    header-tag="header"
-                    header-bg-variant="dark"
-                    footer="#button borrar "
-                    footer-tag="footer"
-                    footer-bg-variant="success"
-                    footer-border-variant="dark"
-                    title="#Ciudad"
-                    style="max-width: 20rem"
+                    no-body
+                    class="overflow-hidden"
+                    style="max-width: 540px"
                   >
-                    <b-card-text>#Button de subir o borrar una ciudad</b-card-text>
+                    <b-row no-gutters>
+                      <b-col md="6">
+                        <b-card-img
+                          src="https://picsum.photos/400/400/?image=20"
+                          alt="Image"
+                          class="rounded-0"
+                        ></b-card-img>
+                      </b-col>
+                      <b-col md="6">
+                        <b-card-body title="#Pais">
+                          <b-card-text>
+                            <p>
+                              #Ciudades
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <v-btn
+                                class="mx-2"
+                                fab
+                                style="background-color: #e30000"
+                                color="primary"
+                                x-small
+                                @click="passBorrado()"
+                              >
+                                <v-icon dark> {{ mdiDelete }} </v-icon>
+                              </v-btn>
+                            </p>
+                          </b-card-text>
+                          <v-btn
+                            style="background-color: #e30000"
+                            color="primary"
+                            small
+                            @click="passBorrado()"
+                          >
+                            <v-icon dark> {{ mdiDelete }} </v-icon>
+                            Delete
+                          </v-btn>
+                        </b-card-body>
+                      </b-col>
+                    </b-row>
                   </b-card>
                 </b-card-group>
               </b-col>
@@ -69,17 +99,35 @@
               <b-col>
                 <b-card-group deck>
                   <b-card
-                    header="#Hotel"
-                    header-text-variant="white"
-                    header-tag="header"
-                    header-bg-variant="dark"
-                    footer="#button borrar "
-                    footer-tag="footer"
-                    footer-bg-variant="success"
-                    footer-border-variant="dark"
-                    title="#Ciudad"
-                    style="max-width: 20rem"
+                    no-body
+                    class="overflow-hidden"
+                    style="max-width: 540px"
                   >
+                    <b-row no-gutters>
+                      <b-col md="6">
+                        <b-card-img
+                          src="https://picsum.photos/400/400/?image=20"
+                          alt="Image"
+                          class="rounded-0"
+                        ></b-card-img>
+                      </b-col>
+                      <b-col md="6">
+                        <b-card-body title="#Hotel">
+                          <b-card-text>
+                            <h6>#Ciudad</h6>
+                          </b-card-text>
+                          <v-btn
+                            style="background-color: #e30000"
+                            color="primary"
+                            small
+                            @click="passBorrado()"
+                          >
+                            <v-icon dark> {{ mdiDelete }} </v-icon>
+                            Delete
+                          </v-btn>
+                        </b-card-body>
+                      </b-col>
+                    </b-row>
                   </b-card>
                 </b-card-group>
               </b-col>
@@ -111,21 +159,39 @@
               <b-col>
                 <b-card-group deck>
                   <b-card
-                    header="#Ciudad"
-                    header-text-variant="white"
-                    header-tag="header"
-                    header-bg-variant="dark"
-                    footer="#button borrar "
-                    footer-tag="footer"
-                    footer-bg-variant="success"
-                    footer-border-variant="dark"
-                    title="#Actividad"
-                    style="max-width: 20rem"
+                    no-body
+                    class="overflow-hidden"
+                    style="max-width: 540px"
                   >
+                    <b-row no-gutters>
+                      <b-col md="6">
+                        <b-card-img
+                          src="https://picsum.photos/400/400/?image=20"
+                          alt="Image"
+                          class="rounded-0"
+                        ></b-card-img>
+                      </b-col>
+                      <b-col md="6">
+                        <b-card-body title="#Actividad">
+                          <b-card-text>
+                            <h6>#Pais</h6>
+                          </b-card-text>
+                          <v-btn
+                            style="background-color: #e30000"
+                            color="primary"
+                            small
+                            @click="passBorrado()"
+                          >
+                            <v-icon dark> {{ mdiDelete }} </v-icon>
+                            Delete
+                          </v-btn>
+                        </b-card-body>
+                      </b-col>
+                    </b-row>
                   </b-card>
                 </b-card-group>
-              </b-col>
-            </b-row>
+              </b-col> </b-row
+            >z
           </b-card-body>
         </b-collapse>
       </b-card>
@@ -136,20 +202,12 @@
 
 <script>
 import swal from "sweetalert";
+import { mdiDelete } from "@mdi/js";
 export default {
-  layout: "panelAdmin",
+  layout: "header_principal",
   data() {
     return {
-      text: `
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-            tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-            wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-            vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-            synth nesciunt you probably haven't heard of them accusamus labore VHS.
-        `,
+      mdiDelete,
     };
   },
 
@@ -157,7 +215,21 @@ export default {
 
   methods: {
     async passBorrado() {
-      swal("Good job!", "You clicked the button!", "success");
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
     },
   },
 };

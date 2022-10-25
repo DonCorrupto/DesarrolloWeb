@@ -80,7 +80,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirHotel()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -166,7 +166,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirHotel()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -252,7 +252,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirHotel()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -304,6 +304,10 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+
+    async elegirHotel(){
+      swal("Good job!", "You clicked the button!", "success");
     },
   },
 };

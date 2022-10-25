@@ -11,16 +11,32 @@
           <b-nav-item @click="passHoteles()">Hoteles</b-nav-item>
           <b-nav-item @click="passActividades()">Actividades</b-nav-item>
           <b-nav-item @click="passMisReserva()">Mis Reservas</b-nav-item>
+          <b-nav-item @click="passAdmin()">Panel de Administrador</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
+          <b-nav-form>
+            <b-form-input
+              size="sm"
+              class="mr-sm-2"
+              placeholder="Buscar"
+            ></b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit"
+              >Buscar</b-button
+            >
+          </b-nav-form>
+          <b-nav-item @click="subirDestinos()">Subir Destinos</b-nav-item>
+          <b-nav-item @click="subirHoteles()">Subir Hoteles</b-nav-item>
+          <b-nav-item @click="subirActividades()">Subir Acividades</b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item @click="cerrarSesion()">Cerrar Sesión</b-dropdown-item>
+            <b-dropdown-item @click="cerrarSesion()"
+              >Cerrar Sesión</b-dropdown-item
+            >
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -92,12 +108,12 @@ export default {
       window.open("pagAdmin", "_self");
     },
 
-    async subirDestinos(){
+    async subirDestinos() {
       window.open("subirInfo/destinos", "_self");
     },
 
-    async subirHoteles(){
-      window.open("subirInfo/hoteles","_self");
+    async subirHoteles() {
+      window.open("subirInfo/hoteles", "_self");
     },
 
     async subirActividades() {
@@ -106,10 +122,10 @@ export default {
 
     async cerrarSesion() {
       swal("Good job!", "You clicked the button!", "success");
-        setTimeout(() => {
-          window.open("../", "_self");
-        }, 2000);
-    }
+      setTimeout(() => {
+        window.open("../", "_self");
+      }, 2000);
+    },
   },
 };
 </script>

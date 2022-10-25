@@ -80,7 +80,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirDestino()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -167,7 +167,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirDestino()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -254,7 +254,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirDestino()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -275,6 +275,7 @@
 
 
 <script>
+import swal from "sweetalert";
 export default {
   layout: "header_principal",
 
@@ -306,6 +307,10 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+
+    async elegirDestino(){
+      swal("Good job!", "You clicked the button!", "success");
     },
   },
 };

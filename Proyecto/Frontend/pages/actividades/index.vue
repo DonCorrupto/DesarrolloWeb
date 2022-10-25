@@ -80,7 +80,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirActividad()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -166,7 +166,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirActividad()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -252,7 +252,7 @@
                             natural lead-in to additional content. This content
                             is a little bit longer.
                           </b-card-text>
-                          <v-btn style="color: purple" text> Escoger </v-btn>
+                          <v-btn @click="elegirActividad()" style="color: purple" text> Escoger </v-btn>
                         </b-card-body>
                       </b-col>
                     </b-row>
@@ -304,6 +304,9 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+    async elegirActividad(){
+      swal("Good job!", "You clicked the button!", "success");
     },
   },
 };
