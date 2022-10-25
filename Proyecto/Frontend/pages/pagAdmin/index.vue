@@ -137,7 +137,7 @@
 <script>
 import swal from "sweetalert";
 export default {
-  layout: "header_principal",
+  layout: "panelAdmin",
   data() {
     return {
       text: `

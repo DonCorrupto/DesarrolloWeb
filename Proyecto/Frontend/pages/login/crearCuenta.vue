@@ -80,6 +80,7 @@ export default {
       // Reset our form values
       this.form.email = "";
       this.form.name = "";
+      this.form.password = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {

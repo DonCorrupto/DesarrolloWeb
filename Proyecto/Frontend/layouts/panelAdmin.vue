@@ -10,11 +10,14 @@
           <b-nav-item @click="passDestinos()">Destinos</b-nav-item>
           <b-nav-item @click="passHoteles()">Hoteles</b-nav-item>
           <b-nav-item @click="passActividades()">Actividades</b-nav-item>
-          <b-nav-item @click="passMisReserva()">Mis Reservas</b-nav-item>
+          <b-nav-item @click="passAdmin()">Panel de Administrador</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
+          <b-nav-item @click="subirDestinos()">Subir Destinos</b-nav-item>
+          <b-nav-item @click="subirHoteles()">Subir Hoteles</b-nav-item>
+          <b-nav-item @click="subirActividades()">Subir Acividades</b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
@@ -82,10 +85,6 @@ export default {
 
     async passActividades() {
       window.open("actividades", "_self");
-    },
-
-    async passMisReserva() {
-      window.open("reserva", "_self");
     },
 
     async passAdmin() {

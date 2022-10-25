@@ -73,8 +73,11 @@
     data() {
       return {
         form: {
-          email: "",
-          password: "",
+          pais: "",
+          imagePais: "",
+          ciudad: "",
+          imageCiudad: "",
+          descripcionCiudad: "",
         },
         show: true,
       };
@@ -94,8 +97,11 @@
       onReset(event) {
         event.preventDefault();
         // Reset our form values
-        this.form.email = "";
-        this.form.name = "";
+        this.form.pais = "";
+        this.form.imagePais = "";
+        this.form.ciudad = "";
+        this.form.imageCiudad = "";
+        this.form.descripcionCiudad = "";
         // Trick to reset/clear native browser form validation state
         this.show = false;
         this.$nextTick(() => {
