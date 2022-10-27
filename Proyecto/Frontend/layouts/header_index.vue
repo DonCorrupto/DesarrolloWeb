@@ -64,7 +64,8 @@
       ],
     }),
 
-    beforeMount() {},
+    beforeMount() {
+    },
 
     methods:{
         async signIn(){

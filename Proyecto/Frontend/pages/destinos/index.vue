@@ -43,10 +43,10 @@
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn style="color: orange" text @click="show = !show">
+            <v-btn style="color: orange" text @click="show1 = !show1">
               Explore
               <v-icon>{{
-                show ? "mdi-chevron-up" : "mdi-chevron-down"
+                show1 ? "mdi-chevron-up" : "mdi-chevron-down"
               }}</v-icon>
             </v-btn>
 
@@ -54,7 +54,7 @@
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="show1">
               <v-divider></v-divider>
 
               <b-row>
@@ -130,10 +130,10 @@
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn style="color: orange" text @click="show = !show">
+            <v-btn style="color: orange" text @click="show2 = !show2">
               Explore
               <v-icon>{{
-                show ? "mdi-chevron-up" : "mdi-chevron-down"
+                show2 ? "mdi-chevron-up" : "mdi-chevron-down"
               }}</v-icon>
             </v-btn>
 
@@ -141,7 +141,7 @@
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="show2">
               <v-divider></v-divider>
 
               <b-row>
@@ -217,10 +217,10 @@
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn style="color: orange" text @click="show = !show">
+            <v-btn style="color: orange" text @click="show3 = !show3">
               Explore
               <v-icon>{{
-                show ? "mdi-chevron-up" : "mdi-chevron-down"
+                show3 ? "mdi-chevron-up" : "mdi-chevron-down"
               }}</v-icon>
             </v-btn>
 
@@ -228,7 +228,7 @@
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="show3">
               <v-divider></v-divider>
 
               <b-row>
