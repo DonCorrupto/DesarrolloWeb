@@ -61,7 +61,7 @@
             ></b-form-textarea>
           </b-form-group>
           <br>
-          <b-button style="border-radius: 15px; width:500px " type="submit" variant="primary">Subir Hotel</b-button>
+          <b-button style="border-radius: 15px; width:500px " type="submit" variant="primary">Subir Actividad</b-button>
         </b-form>
       </div>
     </div>
