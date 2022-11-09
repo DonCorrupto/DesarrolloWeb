@@ -31,9 +31,9 @@ router.get('/destinos/:id', (req, res) => {
 //update a destino
 router.put('/destinos/:id', (req, res) => {
     const { id } = req.params;
-    const { pais, imgPais, ciudad, idCiudad, imgCiudad, descripcionCiudad } = req.body;
+    const { pais, imgPais, ciudad } = req.body;
     destinoSchema
-        .updateOne({ _id:id }, { $set:{pais, imgPais, ciudad, idCiudad, imgCiudad, descripcionCiudad} })
+        .updateOne({ _id:id }, { $set:{pais, imgPais, ciudad} })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })

@@ -38,11 +38,17 @@ Content-Type: application/json
 {
     "pais": "Colombia",
     "imgPais": "https://picsum.photos/1750/480/?image=58",
-    "ciudad": "Medellin",
-    "idCiudad": 159,
-    "imgCiudad": "https://www.semana.com/resizer/2noyXlnQe0xA-d-VdDa6-acgYhk=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/KI2722K53VBFVN7BR7OMCXSPWM.jpg",
-    "descripcionCiudad": "Que buena ciudad para visitar",
+    "ciudad": {
+        "nombre": "Medellin",
+        "idCiudad": 159,
+        "imgCiudad": "https://www.semana.com/resizer/2noyXlnQe0xA-d-VdDa6-acgYhk=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/KI2722K53VBFVN7BR7OMCXSPWM.jpg",
+        "descripcionCiudad": "Que buena ciudad para visitar"
+    }
+
 }
 
 ###
 GET http://localhost:3001/api/destinos HTTP/1.1
+
+###
+GET http://localhost:3001/api/destinos/636b4926290a48bb3904515c HTTP/1.1

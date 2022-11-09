@@ -9,21 +9,23 @@ const destinoSchema = mongoose.Schema({
         required: true,
     },
     ciudad:{
-        type: String,
-        required: true
+        nombre:{
+            type: String,
+            required: true
+        },
+        idCiudad:{
+            type: Number,
+            required: true
+        },
+        imgCiudad:{
+            type: String,
+            required: true
+        },
+        descripcionCiudad:{
+            type: String,
+            required: true
+        }
     },
-    idCiudad:{
-        type: Number,
-        required: true
-    },
-    imgCiudad:{
-        type: String,
-        required: true
-    },
-    descripcionCiudad:{
-        type: String,
-        required: true
-    }
 })
 
 module.exports = mongoose.model('Destino', destinoSchema);
