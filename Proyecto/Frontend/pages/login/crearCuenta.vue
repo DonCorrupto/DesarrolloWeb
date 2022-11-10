@@ -68,6 +68,7 @@ export default {
         email: "",
         name: "",
         password: "",
+        tipo: "USER",
       },
       show: true,
     };
@@ -77,15 +78,22 @@ export default {
 
   methods: {
     async onSubmit() {
-      const dataClick = JSON.stringify(this.form);
-      console.log(dataClick);
-      const url = "http://localhost:3001/api/users";
-      const data = await axios.post(url, dataClick);
-      console.log(data);
-      //swal("Good job!", "You clicked the button!", "success");
-      //setTimeout(() => {
-      //  window.open("../destinos", "_self");
-      //}, 2000);
+      try {
+        const dataClick = this.form;
+        console.log(dataClick);
+        const url = "http://localhost:3001/api/users";
+        const data = await axios.post(url, dataClick);
+        console.log(data);
+        swal("Cuenta Creada", "Tu cuenta ha sido creada", "success");
+        setTimeout(() => {
+          window.open("../login/iniciarSesion", "_self");
+        }, 2000);
+      } catch (error) {
+        swal("Usuario NO Creado", "No se pudo crear la cuenta", "error");
+        setTimeout(() => {
+          window.open("./login/crearCuenta", "_self");
+        }, 2000);
+      }
     },
     onReset(event) {
       event.preventDefault();

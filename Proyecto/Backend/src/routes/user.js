@@ -5,13 +5,10 @@ const userSchema = require('../models/user')
 // create user
 router.post('/users', async (req, res) => {
     const user = userSchema(req.body)
-    res.send(user);
-    /*
     user
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
-    */
 })
 
 //get all users

@@ -9,12 +9,14 @@
     <div class="login">
       <h1 style="font-family: sans-serif">Iniciar Sesión</h1>
       <h6>Bienvenido a ViajaCon</h6>
-      <br>
-      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group
-          id="input-group-1"
-          label-for="input-1"
-        >
+      <br />
+      <b-form
+        action="javascript:void(0)"
+        @submit="onSubmit()"
+        @reset="onReset"
+        v-if="show"
+      >
+        <b-form-group id="input-group-1" label-for="input-1">
           <b-form-input
             id="input-1"
             v-model="form.email"
@@ -28,17 +30,25 @@
           <b-form-input
             id="input-2"
             v-model="form.password"
-            type = "password"
+            type="password"
             placeholder="Contraseña"
             required
             style="border-radius: 15px"
           ></b-form-input>
         </b-form-group>
-        <br>
-        <b-button style="border-radius: 15px; width:500px " type="submit" variant="primary">Iniciar Sesión</b-button>
-        <br>
-        <br>
-        <p> Aun no tienes una Cuenta? <b-link @click="signUp()">Crear Cuenta</b-link></p>
+        <br />
+        <b-button
+          style="border-radius: 15px; width: 500px"
+          type="submit"
+          variant="primary"
+          >Iniciar Sesión</b-button
+        >
+        <br />
+        <br />
+        <p>
+          Aun no tienes una Cuenta?
+          <b-link @click="signUp()">Crear Cuenta</b-link>
+        </p>
       </b-form>
     </div>
   </div>
@@ -46,6 +56,7 @@
 
 <script>
 import swal from "sweetalert";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -60,13 +71,33 @@ export default {
   beforeMount() {},
 
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      console.log(JSON.stringify(this.form));
-      swal("Good job!", "You clicked the button!", "success");
-      setTimeout(() => {
-        window.open("../destinos", "_self");
-      }, 2000);
+    async onSubmit() {
+      try {
+        const login = this.form;
+        //console.log(this.form);
+        const url = "http://localhost:3001/api/users";
+        const data = await axios.get(url);
+        const iniciarSesion = data.data;
+
+        for (let i = 0; i < iniciarSesion.length; i++) {
+          if (
+            iniciarSesion[i].email === login.email &&
+            iniciarSesion[i].password === login.password
+          ) {
+            localStorage.setItem("username", iniciarSesion[i].name);
+            localStorage.setItem("usertipo", iniciarSesion[i].tipo);
+            swal("Sesion Iniciada", "", "success");
+            setTimeout(() => {
+              window.open("../destinos", "_self");
+            }, 2000);
+          }
+        }
+      } catch (error) {
+        swal("Error", "Error al iniciar sesion", "error");
+        setTimeout(() => {
+          window.open("../login/iniciarSesion", "_self");
+        }, 1500);
+      }
     },
     onReset(event) {
       event.preventDefault();
@@ -90,20 +121,18 @@ export default {
 <style>
 .form {
   background-color: whitesmoke;
-  
+
   display: flex;
   flex-direction: row;
   min-height: 100%;
   position: relative;
 }
 
-.login{
-  
+.login {
   width: 500px;
   height: 500px;
   text-align: center;
   margin: 0 auto;
   margin-top: 15%;
-  
 }
 </style>
