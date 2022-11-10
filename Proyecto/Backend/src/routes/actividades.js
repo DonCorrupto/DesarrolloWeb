@@ -1,50 +1,47 @@
 const express = require('express');
 const router = express.Router();
-const userSchema = require('../models/user')
+const actividadSchema = require('../models/actividades')
 
 // create user
-router.post('/users', async (req, res) => {
-    const user = userSchema(req.body)
-    res.send(user);
-    /*
-    user
+router.post('/actividades', (req, res) => {
+    const actividad = actividadSchema(req.body)
+    actividad
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
-    */
 })
 
-//get all users
-router.get('/users', (req, res) => {
-    userSchema
+//get all actividads
+router.get('/actividades', (req, res) => {
+    actividadSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-// get a user
-router.get('/users/:id', (req, res) => {
+// get a actividad
+router.get('/actividades/:id', (req, res) => {
     const { id } = req.params;
-    userSchema
+    actividadSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//update a user
-router.put('/users/:id', (req, res) => {
+//update a actividad
+router.put('/actividades/:id', (req, res) => {
     const { id } = req.params;
-    const { name, email, password } = req.body;
-    userSchema
-        .updateOne({ _id:id }, { $set:{name, email, password} })
+    const { pais, imgPais, ciudad } = req.body;
+    actividadSchema
+        .updateOne({ _id:id }, { $set:{pais, imgPais, ciudad} })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//delete a user
-router.delete('/users/:id', (req, res) => {
+//delete a actividad
+router.delete('/actividades/:id', (req, res) => {
     const { id } = req.params;
-    userSchema
+    actividadSchema
         .remove({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))

@@ -4,9 +4,10 @@ POST http://localhost:3001/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Jacky",
-    "email": "jacky@gmail.com",
-    "password": "987654321"
+    "email": "Jorge@gmail.com",
+    "name": "Jorge Alzate",
+    "password": "123",
+    "tipo": "ADMIN"
 }
 
 ###
@@ -52,3 +53,41 @@ GET http://localhost:3001/api/destinos HTTP/1.1
 
 ###
 GET http://localhost:3001/api/destinos/636b4926290a48bb3904515c HTTP/1.1
+
+
+
+// HOTELES
+###
+POST http://localhost:3001/api/hoteles HTTP/1.1
+Content-Type: application/json
+
+{
+    "ciudad": "Bogota",
+    "imgCiudad": "https://picsum.photos/1750/480/?image=58",
+    "hotel": {
+        "nombre": "Tequendama",
+        "idHotel": 1475,
+        "imgHotel": "https://www.semana.com/resizer/2noyXlnQe0xA-d-VdDa6-acgYhk=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/KI2722K53VBFVN7BR7OMCXSPWM.jpg",
+        "descripcionHotel": "Severo Hotel"
+    }
+
+}
+
+
+
+//  ACTIVIDADES
+###
+POST http://localhost:3001/api/actividades HTTP/1.1
+Content-Type: application/json
+
+{
+    "pais": "Santa Marta",
+    "imgPais": "https://picsum.photos/1750/480/?image=58",
+    "actividad": {
+        "nombre": "Surfing",
+        "idActividad": 9824,
+        "imgActividad": "https://www.semana.com/resizer/2noyXlnQe0xA-d-VdDa6-acgYhk=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/KI2722K53VBFVN7BR7OMCXSPWM.jpg",
+        "descripcionActividad": "OWWWWWw"
+    }
+
+}
