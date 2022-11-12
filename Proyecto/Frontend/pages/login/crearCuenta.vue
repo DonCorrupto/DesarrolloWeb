@@ -92,7 +92,7 @@ export default {
         swal("Usuario NO Creado", "No se pudo crear la cuenta", "error");
         setTimeout(() => {
           window.open("./login/crearCuenta", "_self");
-        }, 2000);
+        }, 1500);
       }
     },
     onReset(event) {

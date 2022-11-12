@@ -1,31 +1,21 @@
 const mongoose = require('mongoose');
 const actividadSchema = mongoose.Schema({
-    pais: {
+    Actividad:{
         type: String,
-        required: true,
+        required: true
     },
-    imgPais:{
+    imgActividad:{
         type: String,
-        required: true,
+        required: true
     },
-    actividad:{
-        nombre:{
-            type: String,
-            required: true
-        },
-        idActividad:{
-            type: Number,
-            required: true
-        },
-        imgActividad:{
-            type: String,
-            required: true
-        },
-        descripcionActividad:{
-            type: String,
-            required: true
-        }
+    descripcionActividad:{
+        type: String,
+        required: true
     },
+    idTown:{
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Actividad', actividadSchema);
