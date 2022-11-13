@@ -114,7 +114,7 @@ export default {
               ciudad: this.form.ciudad,
               imgCiudad: this.form.imageCiudad,
               descripcionCiudad: this.form.descripcionCiudad,
-              idPais: idPais,
+              idPais: idPais
             };
             const urlCiudad = "http://localhost:3001/api/destinos";
             await axios.post(urlCiudad, ciudad);
@@ -134,7 +134,7 @@ export default {
               ciudad: this.form.ciudad,
               imgCiudad: this.form.imageCiudad,
               descripcionCiudad: this.form.descripcionCiudad,
-              idPais: infoPais.data._id
+              idPais: infoPais.data._id,
             };
             const urlCiudad = "http://localhost:3001/api/destinos";
             await axios.post(urlCiudad, ciudad);

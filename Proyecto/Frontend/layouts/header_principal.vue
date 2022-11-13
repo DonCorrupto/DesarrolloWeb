@@ -10,8 +10,8 @@
           <b-nav-item @click="passDestinos()">Destinos</b-nav-item>
           <b-nav-item @click="passHoteles()">Hoteles</b-nav-item>
           <b-nav-item @click="passActividades()">Actividades</b-nav-item>
-          <b-nav-item @click="passMisReserva()">Mis Reservas</b-nav-item>
-          <b-nav-item @click="passAdmin()">Panel de Administrador</b-nav-item>
+          <b-nav-item v-if="tipo === null" @click="passMisReserva()">Mis Reservas</b-nav-item>
+          <b-nav-item v-if="tipo !== null" @click="passAdmin()">Panel de Administrador</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -26,13 +26,13 @@
               >Buscar</b-button
             >
           </b-nav-form>
-          <b-nav-item @click="subirDestinos()">Subir Destinos</b-nav-item>
-          <b-nav-item @click="subirHoteles()">Subir Hoteles</b-nav-item>
-          <b-nav-item @click="subirActividades()">Subir Acividades</b-nav-item>
+          <b-nav-item v-if="tipo !== null" @click="subirDestinos()">Subir Destinos</b-nav-item>
+          <b-nav-item v-if="tipo !== null" @click="subirHoteles()">Subir Hoteles</b-nav-item>
+          <b-nav-item v-if="tipo !== null" @click="subirActividades()">Subir Acividades</b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>User</em>
+              <em>{{user}}</em>
             </template>
             <b-dropdown-item @click="cerrarSesion()"
               >Cerrar Sesión</b-dropdown-item
@@ -83,11 +83,26 @@ import swal from "sweetalert";
 export default {
   data: () => ({
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    user: null,
+    tipo: null,
   }),
 
-  beforeMount() {},
+  beforeMount() {
+    this.obtenerUser()
+  },
 
   methods: {
+    async obtenerUser (){
+      this.user = localStorage.getItem("name");
+      this.tipo = localStorage.getItem("tipo");      
+      if (localStorage.getItem("name") == null) {
+        window.open("../login/iniciarSesion", "_self");
+      }
+      if (localStorage.getItem("tipo") !== "ADMIN") {
+        this.tipo = null;
+      }
+    },
+
     async passDestinos() {
       window.open("destinos", "_self");
     },
@@ -121,9 +136,10 @@ export default {
     },
 
     async cerrarSesion() {
+      localStorage.clear();
       swal("Good job!", "You clicked the button!", "success");
       setTimeout(() => {
-        window.open("../", "_self");
+        window.open("../login/iniciarSesion", "_self");
       }, 2000);
     },
   },

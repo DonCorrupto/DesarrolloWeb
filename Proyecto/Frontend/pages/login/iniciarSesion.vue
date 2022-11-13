@@ -78,18 +78,29 @@ export default {
         const url = "http://localhost:3001/api/users";
         const data = await axios.get(url);
         const iniciarSesion = data.data;
+        //console.log(iniciarSesion);
 
         for (let i = 0; i < iniciarSesion.length; i++) {
           if (
-            iniciarSesion[i].email === login.email &&
-            iniciarSesion[i].password === login.password
+            login.email === iniciarSesion[i].email &&
+            login.password === iniciarSesion[i].password
           ) {
-            localStorage.setItem("username", iniciarSesion[i].name);
-            localStorage.setItem("usertipo", iniciarSesion[i].tipo);
-            swal("Sesion Iniciada", "", "success");
+            localStorage.setItem("idUser", iniciarSesion[i]._id);
+            localStorage.setItem("name", iniciarSesion[i].name);
+            localStorage.setItem("tipo", iniciarSesion[i].tipo);
             setTimeout(() => {
               window.open("../destinos", "_self");
             }, 2000);
+            break;
+          } else if (i === iniciarSesion.length - 1) {
+            swal(
+              "Error",
+              "Email o Contraseña Incorrecta ",
+              "error"
+            );
+            setTimeout(() => {
+              window.open("../login/iniciarSesion", "_self");
+            }, 4000);
           }
         }
       } catch (error) {

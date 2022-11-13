@@ -7,6 +7,7 @@ const destinoRoutes = require("./routes/destinos");
 const hotelRoutes = require("./routes/hoteles");
 const actividadRoutes = require("./routes/actividades");
 const paisesRoutes = require("./routes/paises");
+const reservasRoutes = require("./routes/reservas");
 
 const app = express()
 const port = process.env.PORT || 3001;
@@ -19,6 +20,7 @@ app.use('/api', destinoRoutes);
 app.use('/api', hotelRoutes);
 app.use('/api', actividadRoutes);
 app.use('/api', paisesRoutes);
+app.use('/api', reservasRoutes);
 
 //moongodb connection
 mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas")).catch((error) => console.log(error));
