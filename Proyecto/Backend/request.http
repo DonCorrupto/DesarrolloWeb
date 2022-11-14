@@ -92,3 +92,21 @@ Content-Type: application/json
 GET http://localhost:3001/api/actividades HTTP/1.1
 
 
+
+//  RESERVAS
+###
+POST http://localhost:3001/api/reservas HTTP/1.1
+Content-Type: application/json
+
+{
+
+    "userId": "123",
+    "opcionId": "987",
+    "nombreOpcion": "Hoteles"
+
+}
+
+###
+GET http://localhost:3001/api/reservas HTTP/1.1
+
+

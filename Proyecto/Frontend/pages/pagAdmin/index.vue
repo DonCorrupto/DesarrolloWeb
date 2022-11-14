@@ -207,13 +207,41 @@ export default {
   layout: "header_principal",
   data() {
     return {
+      idBorrar:null,
       mdiDelete,
+      ciudad: null,
+      hotel: null,
+      actividad: null,
+      pais:null,
     };
   },
 
-  beforeMount() {},
+  beforeMount() {
+    this.obtener()
+  },
 
   methods: {
+    async obtener() {
+      const urlCiudades = "http://localhost:3001/api/destinos";
+      const dataCiudades = await axios.get(urlCiudades);
+      const ciudades = dataCiudades.data;
+      this.ciudad = ciudades;
+
+      const urlHoteles = "http://localhost:3001/api/hoteles";
+      const dataHoteles = await axios.get(urlHoteles);
+      const hoteles = dataHoteles.data;
+      this.hotel = hoteles;
+
+      const urlActividades = "http://localhost:3001/api/actividades";
+      const dataActividades = await axios.get(urlActividades);
+      const actividades = dataActividades.data;
+      this.actividad = actividades;
+
+      const urlPaises = "http://localhost:3001/api/paises";
+      const dataPaises = await axios.get(urlPaises);
+      const paises = dataPaises.data
+      this.pais = paises;
+    },
     async passBorrado() {
       swal({
         title: "Are you sure?",

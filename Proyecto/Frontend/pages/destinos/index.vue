@@ -28,7 +28,7 @@
 
           <v-card-title> {{paises.pais}} </v-card-title>
 
-          <v-card-subtitle> Destinos </v-card-subtitle>
+          <v-card-subtitle> Pais </v-card-subtitle>
 
           <v-card-actions>
             <v-btn style="color: orange" text @click="show = !show">
@@ -101,6 +101,7 @@ export default {
 
   data() {
     return {
+      idCiudad: null,
       show: false,
       slide: 0,
       sliding: null,
@@ -135,12 +136,27 @@ export default {
       const dataDestinos = await axios.get(urlDestinos);
       const destinos = dataDestinos.data
       this.destino = destinos;
-      console.log(destinos);
+      //console.log(destinos);
       const urlPaises = "http://localhost:3001/api/paises";
       const dataPaises = await axios.get(urlPaises);
       const paises = dataPaises.data
       this.pais = paises;
-      console.log(paises);
+      //console.log(paises);
+    },
+
+    async elegirDestino() {
+      try {
+        const datoReserva = {
+        userId: localStorage.getItem("idUser"),
+        opcionId: this.idCiudad,
+        nombreOpcion: "destinos"
+      }
+      const urlReserva = "http://localhost:3001/api/reservas";
+      await axios.post(urlReserva, datoReserva);
+      swal("Destino Seleccionado!", "Tu destino ha sido agregado!", "success");
+      } catch (error) {
+        swal("Reserva NO agregada", "No se pudo agregar el destino a la reserva", "error");
+      }
     },
 
     onSlideStart(slide) {
@@ -148,10 +164,6 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    },
-
-    async elegirDestino() {
-      swal("Good job!", "You clicked the button!", "success");
     },
   },
 };
