@@ -23,7 +23,7 @@
         >
           <b-card-body>
             <b-row>
-              <b-col>
+              <b-col v-for="paises in pais" :key="paises.id">
                 <b-card-group deck>
                   <b-card
                     no-body
@@ -33,16 +33,16 @@
                     <b-row no-gutters>
                       <b-col md="6">
                         <b-card-img
-                          src="https://picsum.photos/400/400/?image=20"
+                          :src=paises.imgPais
                           alt="Image"
                           class="rounded-0"
                         ></b-card-img>
                       </b-col>
                       <b-col md="6">
-                        <b-card-body title="#Pais">
-                          <b-card-text>
-                            <p>
-                              #Ciudades
+                        <b-card-body :title=paises.pais>
+                          <b-card-text v-for="ciudades in ciudad" :key="ciudades.id">
+                            <p v-if="ciudades.idPais === paises._id">
+                              {{ciudades.ciudad}}
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <v-btn
                                 class="mx-2"
@@ -50,7 +50,7 @@
                                 style="background-color: #e30000"
                                 color="primary"
                                 x-small
-                                @click="passBorrado()"
+                                @click="idBorrarCiudad = ciudades._id ,passBorradoCiudad()"
                               >
                                 <v-icon dark> {{ mdiDelete }} </v-icon>
                               </v-btn>
@@ -60,7 +60,7 @@
                             style="background-color: #e30000"
                             color="primary"
                             small
-                            @click="passBorrado()"
+                            @click="idBorrarPais = paises._id, passBorradoPais()"
                           >
                             <v-icon dark> {{ mdiDelete }} </v-icon>
                             Delete
@@ -96,7 +96,7 @@
         >
           <b-card-body>
             <b-row>
-              <b-col>
+              <b-col v-for="hoteles in hotel" :key="hoteles.id">
                 <b-card-group deck>
                   <b-card
                     no-body
@@ -106,21 +106,24 @@
                     <b-row no-gutters>
                       <b-col md="6">
                         <b-card-img
-                          src="https://picsum.photos/400/400/?image=20"
+                          :src=hoteles.imgHotel
                           alt="Image"
                           class="rounded-0"
                         ></b-card-img>
                       </b-col>
                       <b-col md="6">
-                        <b-card-body title="#Hotel">
-                          <b-card-text>
-                            <h6>#Ciudad</h6>
+                        <b-card-body :title=hoteles.hotel>
+                          <b-card-text v-for="ciudades in ciudad" :key="ciudades.id">
+                            <p v-if="hoteles.idCity === ciudades._id">
+                              {{ciudades.ciudad}}
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </p>
                           </b-card-text>
                           <v-btn
                             style="background-color: #e30000"
                             color="primary"
                             small
-                            @click="passBorrado()"
+                            @click="idBorrarHotel = hoteles._id, passBorradoHotel()"
                           >
                             <v-icon dark> {{ mdiDelete }} </v-icon>
                             Delete
@@ -156,7 +159,7 @@
         >
           <b-card-body>
             <b-row>
-              <b-col>
+              <b-col v-for="actividades in actividad" :key="actividades.id">
                 <b-card-group deck>
                   <b-card
                     no-body
@@ -166,21 +169,24 @@
                     <b-row no-gutters>
                       <b-col md="6">
                         <b-card-img
-                          src="https://picsum.photos/400/400/?image=20"
+                          :src=actividades.imgActividad
                           alt="Image"
                           class="rounded-0"
                         ></b-card-img>
                       </b-col>
                       <b-col md="6">
-                        <b-card-body title="#Actividad">
-                          <b-card-text>
-                            <h6>#Pais</h6>
+                        <b-card-body :title=actividades.Actividad>
+                          <b-card-text v-for="ciudades in ciudad" :key="ciudades.id">
+                            <p v-if="actividades.idTown === ciudades._id">
+                              {{ciudades.ciudad}}
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </p>
                           </b-card-text>
                           <v-btn
                             style="background-color: #e30000"
                             color="primary"
                             small
-                            @click="passBorrado()"
+                            @click="idBorrarActividad = actividades._id, passBorradoActividad()"
                           >
                             <v-icon dark> {{ mdiDelete }} </v-icon>
                             Delete
@@ -190,8 +196,8 @@
                     </b-row>
                   </b-card>
                 </b-card-group>
-              </b-col> </b-row
-            >z
+              </b-col>
+            </b-row>
           </b-card-body>
         </b-collapse>
       </b-card>
@@ -202,22 +208,26 @@
 
 <script>
 import swal from "sweetalert";
+import axios from "axios";
 import { mdiDelete } from "@mdi/js";
 export default {
   layout: "header_principal",
   data() {
     return {
-      idBorrar:null,
+      idBorrarCiudad: null,
+      idBorrarPais: null,
+      idBorrarHotel: null,
+      idBorrarActividad: null,
       mdiDelete,
       ciudad: null,
       hotel: null,
       actividad: null,
-      pais:null,
+      pais: null,
     };
   },
 
   beforeMount() {
-    this.obtener()
+    this.obtener();
   },
 
   methods: {
@@ -239,23 +249,104 @@ export default {
 
       const urlPaises = "http://localhost:3001/api/paises";
       const dataPaises = await axios.get(urlPaises);
-      const paises = dataPaises.data
+      const paises = dataPaises.data;
       this.pais = paises;
+
+      const tipo = localStorage.getItem("tipo");
+
+      if (tipo === null) {
+        window.open("../login/iniciarSesion", "_self");
+        localStorage.clear();
+      }
     },
-    async passBorrado() {
+    async passBorradoCiudad() {
       swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "Esta Seguro?",
+        text: "Una vez borrado, tendras que ingresarlo de nuevo!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          swal("Poof! Your imaginary file has been deleted!", {
+          axios.delete(`http://localhost:3001/api/destinos/${this.idBorrarCiudad}`)
+
+          swal("Poof! La ciudad ha sido borrado!", {
             icon: "success",
           });
+          setTimeout(() => {
+              window.open("../pagAdmin", "_self");
+            }, 1500);
         } else {
-          swal("Your imaginary file is safe!");
+          swal("La ciudad esta ha salvo!");
+        }
+      });
+    },
+
+    async passBorradoPais() {
+      swal({
+        title: "Esta Seguro?",
+        text: "Una vez borrado, tendras que ingresarlo de nuevo!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios.delete(`http://localhost:3001/api/paises/${this.idBorrarPais}`)
+
+          swal("Poof! El pais ha sido borrado!", {
+            icon: "success",
+          });
+          setTimeout(() => {
+              window.open("../pagAdmin", "_self");
+            }, 1500);
+        } else {
+          swal("El pais esta ha salvo!");
+        }
+      });
+    },
+
+    async passBorradoHotel() {
+      swal({
+        title: "Esta Seguro?",
+        text: "Una vez borrado, tendras que ingresarlo de nuevo!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios.delete(`http://localhost:3001/api/hoteles/${this.idBorrarHotel}`)
+
+          swal("Poof! El pais ha sido borrado!", {
+            icon: "success",
+          });
+          setTimeout(() => {
+              window.open("../pagAdmin", "_self");
+            }, 1500);
+        } else {
+          swal("El pais esta ha salvo!");
+        }
+      });
+    },
+
+    async passBorradoActividad() {
+      swal({
+        title: "Esta Seguro?",
+        text: "Una vez borrado, tendras que ingresarlo de nuevo!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios.delete(`http://localhost:3001/api/actividades/${this.idBorrarActividad}`)
+
+          swal("Poof! La actividad ha sido borrado!", {
+            icon: "success",
+          });
+          setTimeout(() => {
+              window.open("../pagAdmin", "_self");
+            }, 1500);
+        } else {
+          swal("La actividad esta ha salvo!");
         }
       });
     },

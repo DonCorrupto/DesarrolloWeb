@@ -39,7 +39,7 @@ router.put('/paises/:id', (req, res) => {
 })
 
 //delete a pais
-router.delete('/paiss/:id', (req, res) => {
+router.delete('/paises/:id', (req, res) => {
     const { id } = req.params;
     paisSchema
         .remove({ _id: id })

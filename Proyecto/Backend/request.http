@@ -52,6 +52,9 @@ Content-Type: application/json
 GET http://localhost:3001/api/destinos HTTP/1.1
 
 ###
+DELETE http://localhost:3001/api/paises/636ed1aa2a479c6041a85971 HTTP/1.1
+
+###
 GET http://localhost:3001/api/destinos/636b4926290a48bb3904515c HTTP/1.1
 
 
