@@ -16,16 +16,6 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Buscar"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
-              >Buscar</b-button
-            >
-          </b-nav-form>
           <b-nav-item v-if="tipo !== null" @click="subirDestinos()">Subir Destinos</b-nav-item>
           <b-nav-item v-if="tipo !== null" @click="subirHoteles()">Subir Hoteles</b-nav-item>
           <b-nav-item v-if="tipo !== null" @click="subirActividades()">Subir Acividades</b-nav-item>
