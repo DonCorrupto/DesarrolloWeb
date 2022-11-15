@@ -22,6 +22,14 @@ app.use('/api', actividadRoutes);
 app.use('/api', paisesRoutes);
 app.use('/api', reservasRoutes);
 
+app.use((req, res)=>{
+    res.status(404).send({
+        ok: false,
+        message: "Endpoint no encontrado.",
+        info:null
+    })
+})
+
 //moongodb connection
 mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas")).catch((error) => console.log(error));
 
