@@ -1,0 +1,1 @@
+<?php require_once ("../Proyecto/Frontend/pages/index.vue") ?>
