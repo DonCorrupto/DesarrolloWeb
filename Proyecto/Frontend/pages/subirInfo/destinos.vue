@@ -102,7 +102,7 @@ export default {
           imgPais: this.form.imagePais,
         };
         //console.log(pais);
-        const urlPais = "http://localhost:3001/api/paises";
+        const urlPais = "https://desarrolloweb-app.herokuapp.com/api/paises";
         const responsePais = await axios.get(urlPais);
         const obtenerPais = responsePais.data;
         //console.log(obtenerPais);
@@ -117,7 +117,7 @@ export default {
               descripcionCiudad: this.form.descripcionCiudad,
               idPais: idPais
             };
-            const urlCiudad = "http://localhost:3001/api/destinos";
+            const urlCiudad = "https://desarrolloweb-app.herokuapp.com/api/destinos";
             await axios.post(urlCiudad, ciudad);
             swal(
               "Destino Creado",
@@ -137,7 +137,7 @@ export default {
               descripcionCiudad: this.form.descripcionCiudad,
               idPais: infoPais.data._id,
             };
-            const urlCiudad = "http://localhost:3001/api/destinos";
+            const urlCiudad = "https://desarrolloweb-app.herokuapp.com/api/destinos";
             await axios.post(urlCiudad, ciudad);
             swal(
               "Destino Creado",

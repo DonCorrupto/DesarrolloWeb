@@ -75,7 +75,7 @@ export default {
       try {
         const login = this.form;
         //console.log(this.form);
-        const url = "http://localhost:3001/api/users";
+        const url = "https://desarrolloweb-app.herokuapp.com/api/users";
         const data = await axios.get(url);
         const iniciarSesion = data.data;
         //console.log(iniciarSesion);

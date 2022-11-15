@@ -236,22 +236,22 @@ export default {
 
   methods: {
     async obtener() {
-      const urlCiudades = "http://localhost:3001/api/destinos";
+      const urlCiudades = "https://desarrolloweb-app.herokuapp.com/api/destinos";
       const dataCiudades = await axios.get(urlCiudades);
       const ciudades = dataCiudades.data;
       this.ciudad = ciudades;
 
-      const urlHoteles = "http://localhost:3001/api/hoteles";
+      const urlHoteles = "https://desarrolloweb-app.herokuapp.com/api/hoteles";
       const dataHoteles = await axios.get(urlHoteles);
       const hoteles = dataHoteles.data;
       this.hotel = hoteles;
 
-      const urlActividades = "http://localhost:3001/api/actividades";
+      const urlActividades = "https://desarrolloweb-app.herokuapp.com/api/actividades";
       const dataActividades = await axios.get(urlActividades);
       const actividades = dataActividades.data;
       this.actividad = actividades;
 
-      const urlPaises = "http://localhost:3001/api/paises";
+      const urlPaises = "https://desarrolloweb-app.herokuapp.com/api/paises";
       const dataPaises = await axios.get(urlPaises);
       const paises = dataPaises.data;
       this.pais = paises;
@@ -272,7 +272,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3001/api/destinos/${this.idBorrarCiudad}`)
+          axios.delete(`https://desarrolloweb-app.herokuapp.com/api/destinos/${this.idBorrarCiudad}`)
 
           swal("Poof! La ciudad ha sido borrado!", {
             icon: "success",
@@ -295,7 +295,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3001/api/paises/${this.idBorrarPais}`)
+          axios.delete(`https://desarrolloweb-app.herokuapp.com/api/paises/${this.idBorrarPais}`)
 
           swal("Poof! El pais ha sido borrado!", {
             icon: "success",
@@ -318,7 +318,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3001/api/hoteles/${this.idBorrarHotel}`)
+          axios.delete(`https://desarrolloweb-app.herokuapp.com/api/hoteles/${this.idBorrarHotel}`)
 
           swal("Poof! El pais ha sido borrado!", {
             icon: "success",
@@ -341,7 +341,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3001/api/actividades/${this.idBorrarActividad}`)
+          axios.delete(`https://desarrolloweb-app.herokuapp.com/api/actividades/${this.idBorrarActividad}`)
 
           swal("Poof! La actividad ha sido borrado!", {
             icon: "success",

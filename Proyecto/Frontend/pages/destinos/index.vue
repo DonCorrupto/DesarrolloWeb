@@ -132,12 +132,12 @@ export default {
   methods: {
 
     async obtenerDestinos () {
-      const urlDestinos = "http://localhost:3001/api/destinos";
+      const urlDestinos = "https://desarrolloweb-app.herokuapp.com/api/destinos";
       const dataDestinos = await axios.get(urlDestinos);
       const destinos = dataDestinos.data
       this.destino = destinos;
       //console.log(destinos);
-      const urlPaises = "http://localhost:3001/api/paises";
+      const urlPaises = "https://desarrolloweb-app.herokuapp.com/api/paises";
       const dataPaises = await axios.get(urlPaises);
       const paises = dataPaises.data
       this.pais = paises;
@@ -151,7 +151,7 @@ export default {
         opcionId: this.idCiudad,
         nombreOpcion: "destinos"
       }
-      const urlReserva = "http://localhost:3001/api/reservas";
+      const urlReserva = "https://desarrolloweb-app.herokuapp.com/api/reservas";
       await axios.post(urlReserva, datoReserva);
       swal("Destino Seleccionado!", "Tu destino ha sido agregado!", "success");
       } catch (error) {

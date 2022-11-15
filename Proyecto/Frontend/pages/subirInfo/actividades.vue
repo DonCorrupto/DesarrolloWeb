@@ -91,7 +91,7 @@ export default {
           ciudad: this.form.ciudad,
         };
 
-        const urlCiudad = "http://localhost:3001/api/destinos";
+        const urlCiudad = "https://desarrolloweb-app.herokuapp.com/api/destinos";
         const responseCiudad = await axios.get(urlCiudad);
         const obtenerCiudad = responseCiudad.data;
         //console.log(obtenerCiudad);
@@ -106,7 +106,7 @@ export default {
               descripcionActividad: this.form.descripcionActividad,
               idTown: idCiudad
             };
-            const urlActividad = "http://localhost:3001/api/actividades";
+            const urlActividad = "https://desarrolloweb-app.herokuapp.com/api/actividades";
             await axios.post(urlActividad, actividad);
             swal(
               "Actividad Creada",

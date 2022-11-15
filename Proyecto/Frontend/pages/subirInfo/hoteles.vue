@@ -92,7 +92,7 @@ export default {
           ciudad: this.form.ciudad,
         };
 
-        const urlCiudad = "http://localhost:3001/api/destinos";
+        const urlCiudad = "https://desarrolloweb-app.herokuapp.com/api/destinos";
         const responseCiudad = await axios.get(urlCiudad);
         const obtenerCiudad = responseCiudad.data;
         //console.log(obtenerCiudad);
@@ -107,7 +107,7 @@ export default {
               descripcionHotel: this.form.descripcionHotel,
               idCity: idCiudad
             };
-            const urlHotel = "http://localhost:3001/api/hoteles";
+            const urlHotel = "https://desarrolloweb-app.herokuapp.com/api/hoteles";
             await axios.post(urlHotel, hotel);
             swal(
               "Hotel Creado",

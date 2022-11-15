@@ -83,7 +83,7 @@ export default {
       try {
         const dataClick = this.form;
         console.log(dataClick);
-        const url = "http://localhost:3001/api/users";
+        const url = "https://desarrolloweb-app.herokuapp.com/api/users";
         const obtenerData = await axios.get(url);
         const obtenerUsuario = obtenerData.data;
         let repetido = false;

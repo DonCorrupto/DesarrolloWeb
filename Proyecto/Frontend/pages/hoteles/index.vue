@@ -133,12 +133,12 @@ export default {
 
   methods: {
     async obtenerHoteles() {
-      const urlHoteles = "http://localhost:3001/api/hoteles";
+      const urlHoteles = "https://desarrolloweb-app.herokuapp.com/api/hoteles";
       const dataHoteles = await axios.get(urlHoteles);
       const hoteles = dataHoteles.data;
       this.hotel = hoteles;
       //console.log(hoteles);
-      const urlCiudades = "http://localhost:3001/api/destinos";
+      const urlCiudades = "https://desarrolloweb-app.herokuapp.com/api/destinos";
       const dataCiudades = await axios.get(urlCiudades);
       const ciudades = dataCiudades.data;
       this.ciudad = ciudades;
@@ -152,7 +152,7 @@ export default {
         opcionId: this.idHotel,
         nombreOpcion: "hoteles"
       }
-      const urlReserva = "http://localhost:3001/api/reservas";
+      const urlReserva = "https://desarrolloweb-app.herokuapp.com/api/reservas";
       await axios.post(urlReserva, datoReserva);
       swal("Hotel Seleccionado!", "Hotel ha sido agregado!", "success");
       } catch (error) {

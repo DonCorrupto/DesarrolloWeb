@@ -214,7 +214,7 @@ export default {
 
   methods: {
     async obtenerReservas() {
-      const urlReservas = "http://localhost:3001/api/reservas";
+      const urlReservas = "https://desarrolloweb-app.herokuapp.com/api/reservas";
       const dataReservas = await axios.get(urlReservas);
       const reservas = dataReservas.data;
       //console.log(reservas[0].userId);
@@ -222,22 +222,22 @@ export default {
       this.id_user = localStorage.getItem("idUser");
       //console.log(typeof localStorage.getItem("idUser"));
 
-      const urlCiudades = "http://localhost:3001/api/destinos";
+      const urlCiudades = "https://desarrolloweb-app.herokuapp.com/api/destinos";
       const dataCiudades = await axios.get(urlCiudades);
       const ciudades = dataCiudades.data;
       this.ciudad = ciudades;
 
-      const urlHoteles = "http://localhost:3001/api/hoteles";
+      const urlHoteles = "https://desarrolloweb-app.herokuapp.com/api/hoteles";
       const dataHoteles = await axios.get(urlHoteles);
       const hoteles = dataHoteles.data;
       this.hotel = hoteles;
 
-      const urlActividades = "http://localhost:3001/api/actividades";
+      const urlActividades = "https://desarrolloweb-app.herokuapp.com/api/actividades";
       const dataActividades = await axios.get(urlActividades);
       const actividades = dataActividades.data;
       this.actividad = actividades;
 
-      const urlPaises = "http://localhost:3001/api/paises";
+      const urlPaises = "https://desarrolloweb-app.herokuapp.com/api/paises";
       const dataPaises = await axios.get(urlPaises);
       const paises = dataPaises.data
       this.pais = paises;
@@ -252,7 +252,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:3001/api/reservas/${this.idBorrar}`)
+          axios.delete(`https://desarrolloweb-app.herokuapp.com/api/reservas/${this.idBorrar}`)
 
           swal("Poof! Tu destino ha sido borrado!", {
             icon: "success",

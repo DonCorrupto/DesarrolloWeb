@@ -129,12 +129,12 @@ export default {
   methods: {
 
     async obtenerActividades() {
-      const urlActividades = "http://localhost:3001/api/actividades";
+      const urlActividades = "https://desarrolloweb-app.herokuapp.com/api/actividades";
       const dataActividades = await axios.get(urlActividades);
       const actividades = dataActividades.data
       this.actividad = actividades;
       //console.log(actividades);
-      const urlCiudades = "http://localhost:3001/api/destinos";
+      const urlCiudades = "https://desarrolloweb-app.herokuapp.com/api/destinos";
       const dataCiudades = await axios.get(urlCiudades);
       const ciudades = dataCiudades.data;
       this.ciudad = ciudades;
@@ -148,7 +148,7 @@ export default {
         opcionId: this.idActvidad,
         nombreOpcion: "actividades"
       }
-      const urlReserva = "http://localhost:3001/api/reservas";
+      const urlReserva = "https://desarrolloweb-app.herokuapp.com/api/reservas";
       await axios.post(urlReserva, datoReserva);
       swal("Actividad Seleccionada!", "La actividad ha sido agregado!", "success");
       } catch (error) {
