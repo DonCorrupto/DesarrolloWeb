@@ -43,7 +43,7 @@
                           <b-card-text v-for="ciudades in ciudad" :key="ciudades.id">
                             <p v-if="ciudades.idPais === paises._id">
                               {{ciudades.ciudad}}
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <v-btn
                                 class="mx-2"
                                 fab
@@ -210,15 +210,19 @@
 import swal from "sweetalert";
 import axios from "axios";
 import { mdiDelete } from "@mdi/js";
+import { mdiCommentEdit } from "@mdi/js";
 export default {
   layout: "header_principal",
   data() {
     return {
+      dialog: false,
       idBorrarCiudad: null,
+      idEditarCiudad: null,
       idBorrarPais: null,
       idBorrarHotel: null,
       idBorrarActividad: null,
       mdiDelete,
+      mdiCommentEdit,
       ciudad: null,
       hotel: null,
       actividad: null,
@@ -349,6 +353,10 @@ export default {
           swal("La actividad esta ha salvo!");
         }
       });
+    },
+
+    async passEditarCiudad(){
+      console.log(this.idEditarCiudad)
     },
   },
 };

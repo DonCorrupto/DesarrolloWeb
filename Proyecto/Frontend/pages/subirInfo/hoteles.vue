@@ -10,6 +10,7 @@
       <h1 style="font-family: sans-serif">Subir Hoteles</h1>
       <h6>Ingresa Nuevos Hoteles</h6>
       <br />
+      <p>* Es obligatorio</p>
       <b-form
         action="javascript:void(0)"
         @submit="onSubmit()"
@@ -20,7 +21,7 @@
           <b-form-input
             id="input-1"
             v-model="form.ciudad"
-            placeholder="Ciudad"
+            placeholder="* Ciudad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -29,7 +30,7 @@
           <b-form-input
             id="input-2"
             v-model="form.hotel"
-            placeholder="Nombre del Hotel"
+            placeholder="* Nombre del Hotel"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -38,7 +39,7 @@
           <b-form-input
             id="input-3"
             v-model="form.imageHotel"
-            placeholder="Url de la imagen del Hotel"
+            placeholder="* Url de la imagen del Hotel"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -47,7 +48,7 @@
           <b-form-textarea
             id="input-4"
             v-model="form.descripcionHotel"
-            placeholder="Descripcion del Hotel"
+            placeholder="* Descripcion del Hotel"
             required
             style="border-radius: 15px"
             rows="5"

@@ -9,7 +9,8 @@
     <div class="login">
       <h1 style="font-family: sans-serif">Subir Destinos</h1>
       <h6>Ingresa Nuevos Destinos</h6>
-      <br />
+      <br>
+      <p>* Es obligatorio</p>
       <b-form
         action="javascript:void(0)"
         @submit="onSubmit()"
@@ -20,7 +21,7 @@
           <b-form-input
             id="input-1"
             v-model="form.pais"
-            placeholder="Pais"
+            placeholder="* Pais"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -29,7 +30,7 @@
           <b-form-input
             id="input-2"
             v-model="form.imagePais"
-            placeholder="Url de la imagen que represente al pais"
+            placeholder="* Url de la imagen que represente al pais"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -38,7 +39,7 @@
           <b-form-input
             id="input-3"
             v-model="form.ciudad"
-            placeholder="Ciudad"
+            placeholder="* Ciudad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -47,7 +48,7 @@
           <b-form-input
             id="input-4"
             v-model="form.imageCiudad"
-            placeholder="Url de la imagen que represente a la Ciudad"
+            placeholder="* Url de la imagen que represente a la Ciudad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -56,7 +57,7 @@
           <b-form-textarea
             id="input-5"
             v-model="form.descripcionCiudad"
-            placeholder="Descripcion de la Ciudad"
+            placeholder="* Descripcion de la Ciudad"
             required
             style="border-radius: 15px"
             rows="5"

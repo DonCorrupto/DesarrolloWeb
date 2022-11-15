@@ -10,6 +10,7 @@
       <h1 style="font-family: sans-serif">Crear Cuenta</h1>
       <h6>Sé parte de nosotros</h6>
       <br />
+      <p>* Es obligatorio</p>
       <b-form
         action="javascript:void(0)"
         @submit="onSubmit()"
@@ -21,17 +22,18 @@
             id="input-1"
             v-model="form.email"
             type="email"
-            placeholder="Correo Electronico"
+            placeholder="* Correo Electronico"
             required
             style="border-radius: 15px"
           ></b-form-input>
+          <b-icon icon="camera" font-scale="1"></b-icon>
         </b-form-group>
         <b-form-group id="input-group-2" label-for="input-2">
           <b-form-input
             id="input-2"
             v-model="form.name"
             type="string"
-            placeholder="Nombre y Apellido"
+            placeholder="* Nombre y Apellido"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -41,7 +43,7 @@
             id="input-3"
             v-model="form.password"
             type="password"
-            placeholder="Contraseña"
+            placeholder="* Contraseña"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -82,16 +84,35 @@ export default {
         const dataClick = this.form;
         console.log(dataClick);
         const url = "http://localhost:3001/api/users";
-        const data = await axios.post(url, dataClick);
-        console.log(data);
-        swal("Cuenta Creada", "Tu cuenta ha sido creada", "success");
-        setTimeout(() => {
-          window.open("../login/iniciarSesion", "_self");
-        }, 2000);
+        const obtenerData = await axios.get(url);
+        const obtenerUsuario = obtenerData.data;
+        let repetido = false;
+
+        for (let i = 0; i < obtenerUsuario.length; i++) {
+          let emailUser = obtenerUsuario[i].email;
+          console.log(emailUser);
+          if (emailUser === dataClick.email) {
+            repetido = true;
+          }
+        }
+        
+        if (repetido === false) {
+          const data = await axios.post(url, dataClick);
+          console.log(data);
+          swal("Cuenta Creada", "Tu cuenta ha sido creada", "success");
+          setTimeout(() => {
+            window.open("../login/iniciarSesion", "_self");
+          }, 2000);
+        } else {
+          swal("Email ya esta en USO", "Intenta con otro correo", "error");
+          setTimeout(() => {
+            window.open("./crearCuenta", "_self");
+          }, 1500);
+        }
       } catch (error) {
         swal("Usuario NO Creado", "No se pudo crear la cuenta", "error");
         setTimeout(() => {
-          window.open("./login/crearCuenta", "_self");
+          window.open("./crearCuenta", "_self");
         }, 1500);
       }
     },

@@ -12,6 +12,8 @@
     "@mdi/js": "^7.0.96",
     "@nuxtjs/axios": "^5.13.6",
     "bootstrap": "^4.6.2",
+    "bootstrap-icons": "^1.10.2",
+    "bootstrap-icons-vue": "^1.8.1",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.25.3",
     "glider-js": "^1.7.3",

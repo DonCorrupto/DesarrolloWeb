@@ -10,6 +10,7 @@
       <h1 style="font-family: sans-serif">Subir Actividades</h1>
       <h6>Ingresa Nuevos Actividades</h6>
       <br />
+      <p>* Es obligatorio</p>
       <b-form
         action="javascript:void(0)"
         @submit="onSubmit()"
@@ -20,7 +21,7 @@
           <b-form-input
             id="input-1"
             v-model="form.ciudad"
-            placeholder="Ciudad"
+            placeholder="* Ciudad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -29,7 +30,7 @@
           <b-form-input
             id="input-2"
             v-model="form.actividad"
-            placeholder="Nombre de la Actividad"
+            placeholder="* Nombre de la Actividad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -38,7 +39,7 @@
           <b-form-input
             id="input-3"
             v-model="form.imageActividad"
-            placeholder="Url de la imagen de la Actividad"
+            placeholder="* Url de la imagen de la Actividad"
             required
             style="border-radius: 15px"
           ></b-form-input>
@@ -47,7 +48,7 @@
           <b-form-textarea
             id="input-4"
             v-model="form.descripcionActividad"
-            placeholder="Descripcion de de la Actividad"
+            placeholder="* Descripcion de de la Actividad"
             required
             style="border-radius: 15px"
             rows="5"
