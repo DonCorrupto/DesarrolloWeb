@@ -1,51 +1,90 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const reservaSchema = require('../models/reservas')
+const reservaSchema = require("../models/reservas");
 
 // create reserva
-router.post('/reservas', async (req, res) => {
-    const reserva = reservaSchema(req.body)
+router.post("/reservas", async (req, res) => {
+  try {
+    const reserva = reservaSchema(req.body);
     reserva
-        .save()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
-})
+      .save()
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  } catch (error) {
+    res.status(500).send({
+      ok: false,
+      message: "Error",
+      info: error.toString(),
+    });
+  }
+});
 
 //get all reservas
-router.get('/reservas', (req, res) => {
+router.get("/reservas", (req, res) => {
+  try {
     reservaSchema
-        .find()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
-})
+      .find()
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  } catch (error) {
+    res.status(500).send({
+      ok: false,
+      message: "Error",
+      info: error.toString(),
+    });
+  }
+});
 
 // get a reserva
-router.get('/reservas/:id', (req, res) => {
+router.get("/reservas/:id", (req, res) => {
+  try {
     const { id } = req.params;
     reservaSchema
-        .findById(id)
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
-})
+      .findById(id)
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  } catch (error) {
+    res.status(500).send({
+      ok: false,
+      message: "Error",
+      info: error.toString(),
+    });
+  }
+});
 
 //update a reserva
-router.put('/reservas/:id', (req, res) => {
+router.put("/reservas/:id", (req, res) => {
+  try {
     const { id } = req.params;
     const { name, email, password } = req.body;
     reservaSchema
-        .updateOne({ _id:id }, { $set:{name, email, password} })
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
-})
+      .updateOne({ _id: id }, { $set: { name, email, password } })
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  } catch (error) {
+    res.status(500).send({
+      ok: false,
+      message: "Error",
+      info: error.toString(),
+    });
+  }
+});
 
 //delete a reserva
-router.delete('/reservas/:id', (req, res) => {
+router.delete("/reservas/:id", (req, res) => {
+  try {
     const { id } = req.params;
     reservaSchema
-        .remove({ _id: id })
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }))
-})
-
+      .remove({ _id: id })
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  } catch (error) {
+    res.status(500).send({
+      ok: false,
+      message: "Error",
+      info: error.toString(),
+    });
+  }
+});
 
 module.exports = router;
